@@ -21,16 +21,16 @@ class EventCalendarGenerator < Rails::Generators::Base
 
     if options[:use_jquery]
       say "Using jQuery for scripting", :yellow
-      copy_file 'jq_javascript.js', "public/javascripts/event_calendar.js"
+      copy_file 'jq_javascript.js', "#{asset_path}/javascripts/event_calendar.js"
     elsif options[:use_mootools]
       say "Using MooTools for scripting", :yellow
-      copy_file "mt_javascript.js", "public/javascripts/event_calendar.js"
+      copy_file "mt_javascript.js", "#{asset_path}/javascripts/event_calendar.js"
     else
       say "Using Prototype for scripting", :yellow
-      copy_file 'javascript.js', "public/javascripts/event_calendar.js"
+      copy_file 'javascript.js', "#{asset_path}/javascripts/event_calendar.js"
     end
 
-    copy_file "stylesheet.css", "public/stylesheets/event_calendar.css"
+    copy_file "stylesheet.css", "#{asset_path}/stylesheets/event_calendar.css"
 
     unless options.static_only?
       template "model.rb.erb", "app/models/#{model_name}.rb"
@@ -42,6 +42,14 @@ class EventCalendarGenerator < Rails::Generators::Base
       route "match '/#{view_name}(/:year(/:month))' => '#{view_name}#index', :as => :#{named_route_name}, :constraints => {:year => /\\d{4}/, :month => /\\d{1,2}/}"
     end
 
+  end
+  
+  def asset_path
+    if Rails::VERSION::MAJOR == 3 and Rails::VERSION::MINOR == 1
+     "app/assets"
+    else
+      "public"
+    end
   end
 
   def model_class_name

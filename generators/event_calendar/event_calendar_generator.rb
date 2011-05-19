@@ -16,12 +16,19 @@ class EventCalendarGenerator < Rails::Generator::Base
   end
   
   def manifest
+    # Calculate asset path. Needs to be cleaned up to be DRY
+    asset_path = if Rails::VERSION::MAJOR == 3 and Rails::VERSION::MINOR == 1
+                   "app/assets"
+                 else
+                   "public"
+                 end
+    
     record do |m|
       # static files
-      m.file "stylesheet.css", "public/stylesheets/event_calendar.css"
+      m.file "stylesheet.css", "#{asset_path}/stylesheets/event_calendar.css"
       
       script = options[:use_jquery] ? 'jq_javascript.js' : (options[:use_mootools] ? 'mt_javascript.js' : 'javascript.js')
-      m.file script, "public/javascripts/event_calendar.js"
+      m.file script, "#{asset_path}/javascripts/event_calendar.js"
       
       # MVC and other supporting files
       unless options[:static_only]

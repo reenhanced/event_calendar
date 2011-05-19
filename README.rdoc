@@ -1,5 +1,7 @@
 ==EventCalendar
 
+Branched by Reenhanced for Rails 3.1 compatibility
+
 Easily show multiple, overlapping events across calendar days and rows.
 
 See http://dev.elevationblog.com/2009/7/23/event-calendar-rails-plugin for a screenshot.

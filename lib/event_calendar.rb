@@ -1,5 +1,4 @@
 module EventCalendar
-  
   def self.included(base)
     base.send :extend, ClassMethods
   end
