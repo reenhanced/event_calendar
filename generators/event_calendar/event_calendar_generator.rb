@@ -2,34 +2,30 @@ require File.expand_path(File.dirname(__FILE__) + "/lib/insert_routes.rb")
 
 class EventCalendarGenerator < Rails::Generator::Base
   default_options :static_only => false,
-                  :use_jquery =>  false,
+                  :use_jquery => rails31?,
                   :use_all_day => false,
                   :use_mootools => false
-  
+
   attr_reader :class_name, :view_name
-  
+
   def initialize(args, runtime_options = {})
     super
     usage if args.length > 0 and args.length < 2
     @class_name = (args.shift || "event").underscore
     @view_name = (args.shift || "calendar").underscore
   end
-  
+
   def manifest
     # Calculate asset path. Needs to be cleaned up to be DRY
-    asset_path = if Rails::VERSION::MAJOR == 3 and Rails::VERSION::MINOR == 1
-                   "app/assets"
-                 else
-                   "public"
-                 end
-    
+    asset_path = rails31? ? "app/assets" : "public"
+
     record do |m|
       # static files
       m.file "stylesheet.css", "#{asset_path}/stylesheets/event_calendar.css"
-      
+
       script = options[:use_jquery] ? 'jq_javascript.js' : (options[:use_mootools] ? 'mt_javascript.js' : 'javascript.js')
       m.file script, "#{asset_path}/javascripts/event_calendar.js"
-      
+
       # MVC and other supporting files
       unless options[:static_only]
         m.template "model.rb.erb", File.join("app/models", "#{@class_name}.rb")
@@ -42,9 +38,9 @@ class EventCalendarGenerator < Rails::Generator::Base
       end
     end
   end
-  
+
   protected
-  
+
   def add_options!(opt)
     opt.separator ''
     opt.separator 'Options:'
@@ -56,5 +52,9 @@ class EventCalendarGenerator < Rails::Generator::Base
     end
     opt.on("--use-all-day",
       "Include an 'all_day' field on events, and display appropriately.") { |v| options[:use_all_day] = v }
+  end
+
+  def rails31?
+    Rails::VERSION::MAJOR == 3 and Rails::VERSION::MINOR == 1
   end
 end
