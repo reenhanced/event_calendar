@@ -1,5 +1,9 @@
 require 'rails/generators/migration'
 
+def rails31?
+  Rails::VERSION::MAJOR == 3 and Rails::VERSION::MINOR == 1
+end
+
 class EventCalendarGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
 
@@ -8,12 +12,11 @@ class EventCalendarGenerator < Rails::Generators::Base
   argument :model_name, :optional => true, :default => 'event'
   argument :controller_name, :optional => true, :default => 'calendar'
   
-  class_option :static_only,  :type => :boolean, :default => false, :desc => "Only generate stylesheets and scripts"
-  { 'jquery' => 'jQuery', 'mootools' => 'MooTools' }.each do |k,v|
-    class_option :"use_#{k}",   :type => :boolean, :default => false, :desc => "Use #{v} for scripting"  
-  end
-  class_option :use_all_day,  :type => :boolean, :default => false, :desc => "Add an additional 'all_day' attribute"
-  class_option :use_color,    :type => :boolean, :default => false, :desc => "Add an additional 'color' attribute"
+  class_option :static_only,  :type => :boolean, :default => false,    :desc => "Only generate stylesheets and scripts"
+  class_option :use_jquery,   :type => :boolean, :default => rails31?, :desc => "Use jQuery for scripting"
+  class_option :use_mootools, :type => :boolean, :default => false,    :desc => "Use MooToolsfor scripting"
+  class_option :use_all_day,  :type => :boolean, :default => false,    :desc => "Add an additional 'all_day' attribute"
+  class_option :use_color,    :type => :boolean, :default => false,    :desc => "Add an additional 'color' attribute"
   
   def do_it
     say "Adding an all_day column", :yellow if options[:use_all_day]
@@ -43,13 +46,9 @@ class EventCalendarGenerator < Rails::Generators::Base
     end
 
   end
-  
+
   def asset_path
-    if Rails::VERSION::MAJOR == 3 and Rails::VERSION::MINOR == 1
-     "app/assets"
-    else
-      "public"
-    end
+    rails31? ? "app/assets" : "public"
   end
 
   def model_class_name
