@@ -38,6 +38,24 @@ Or as a plugin:
 To generate the necessary static files AND the example below:
 
   rails generate event_calendar
+  
+=== Rails 3.1
+
+Add to your Gemfile":
+
+  gem 'event-calendar', :require => 'event_calendar'
+  
+Run:
+
+  bundler update
+  
+Add to your application.js asset:
+
+  //= require event_calendar
+  
+Add to your application.css asset:
+
+  *= require event_calendar
 
 === Generator Options
 
