@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{event-calendar}
-  s.version = "2.4.1"
+  s.version = "2.4.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Jeff Schuil}]
@@ -25,9 +25,9 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/assets/javascripts/event_calendar.js",
-    "app/assets/javascripts/jquery.js",
-    "app/assets/javascripts/mootools.js",
-    "app/assets/javascripts/prototype.js",
+    "app/assets/javascripts/jq.js",
+    "app/assets/javascripts/mt.js",
+    "app/assets/javascripts/p.js",
     "app/assets/stylesheets/event_calendar.css",
     "app/assets/stylesheets/stylesheet.css",
     "event-calendar.gemspec",
@@ -85,8 +85,16 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rails>, [">= 0"])
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<rspec-core>, [">= 0"])
+      s.add_development_dependency(%q<rails>, [">= 0"])
+      s.add_development_dependency(%q<sqlite3>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
     else
       s.add_dependency(%q<event-calendar>, [">= 0"])
+      s.add_dependency(%q<rspec-core>, [">= 0"])
+      s.add_dependency(%q<rails>, [">= 0"])
+      s.add_dependency(%q<sqlite3>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<rspec-core>, [">= 0"])
       s.add_dependency(%q<rails>, [">= 0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
@@ -98,6 +106,10 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<event-calendar>, [">= 0"])
+    s.add_dependency(%q<rspec-core>, [">= 0"])
+    s.add_dependency(%q<rails>, [">= 0"])
+    s.add_dependency(%q<sqlite3>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<rspec-core>, [">= 0"])
     s.add_dependency(%q<rails>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
