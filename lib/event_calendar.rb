@@ -1,6 +1,14 @@
 module EventCalendar
   class Config
-    attr_accessor :other_month_header
+    attr_accessor :border
+    attr_accessor :day_names_bg
+    attr_accessor :day_names_text
+    attr_accessor :day_header_bg
+    attr_accessor :day_header_text
+    attr_accessor :today_bg
+    attr_accessor :today_header_bg
+    attr_accessor :other_month_header_bg
+    attr_accessor :other_month_header_text
   end
 
   def self.config

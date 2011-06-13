@@ -8,7 +8,15 @@ module EventCalendar
 
     initializer "event_calendar.configure" do |app|
       EventCalendar.configure do |config|
-        config.other_month_header = app.config.event_calendar[:other_month_header] || "#efefef"
+        config.border = app.config.event_calendar[:border] || "#d5d5d5"
+        config.day_names_bg = app.config.event_calendar[:day_names_bg] || "#303030"
+        config.day_names_text = app.config.event_calendar[:day_names_text] || "white"
+        config.day_header_bg = app.config.event_calendar[:day_header_bg] || "#ecede2"
+        config.day_header_text = app.config.event_calendar[:day_header_text] || "#444"
+        config.today_bg = app.config.event_calendar[:today_bg] || "#ffd"
+        config.today_header_bg = app.config.event_calendar[:today_header_bg] || "#d7d7ba"
+        config.other_month_header_bg = app.config.event_calendar[:other_month_header_bg] || "#efefef"
+        config.other_month_header_text = app.config.event_calendar[:other_month_header_text] || "#777"
       end
     end
 
