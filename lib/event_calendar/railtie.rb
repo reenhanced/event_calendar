@@ -7,7 +7,9 @@ module EventCalendar
     config.event_calendar = ActiveSupport::OrderedOptions.new
 
     initializer "event_calendar.configure" do |app|
-
+      EventCalendar.configure do |config|
+        config.other_month_header = app.config.event_calendar[:other_month_header] || "#efefef"
+      end
     end
 
     initializer :after_initialize do

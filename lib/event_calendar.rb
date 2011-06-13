@@ -1,4 +1,16 @@
 module EventCalendar
+  class Config
+    attr_accessor :other_month_header
+  end
+
+  def self.config
+    @@config ||= Config.new
+  end
+
+  def self.configure
+    yield self.config
+  end
+
   def self.included(base)
     base.send :extend, ClassMethods
   end

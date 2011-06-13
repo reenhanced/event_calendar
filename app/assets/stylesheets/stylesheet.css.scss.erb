@@ -1,4 +1,5 @@
-/* 
+<% require 'event_calendar' %>
+/*
   Event Calendar stylesheet
   
   Colors:
@@ -20,7 +21,7 @@ $day-header-bg: #ecede2;
 $today-header-bg: #d7d7ba;
 $today-bg: #ffd;
 $other-month-number: #777;
-$other-month-header: #efefef;
+$other-month-header: <%= EventCalendar.config.other_month_header %>;
 $hover: #2eac6a;
 
 
