@@ -20,7 +20,7 @@ class EventCalendarGenerator < Rails::Generator::Base
     #asset_path = rails31? ? "app/assets" : "public"
 
     record do |m|
-      if !rails31?
+      unless rails31?
         # static files
         m.file "stylesheet.css", "public/stylesheets/event_calendar.css"
 
@@ -46,7 +46,7 @@ class EventCalendarGenerator < Rails::Generator::Base
   def add_options!(opt)
     opt.separator ''
     opt.separator 'Options:'
-    if !rails31?
+    unless rails31?
       opt.on("--static-only",
         "Only generate the static files. (stylesheet, javascript, and images)") { |v| options[:static_only] = v }
       { 'jquery' => 'jQuery', 'mootools' => 'MooTools' }.each do |k,v|

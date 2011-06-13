@@ -4,6 +4,12 @@ require 'rails'
 
 module EventCalendar
   class Railtie < Rails::Engine
+    config.event_calendar = ActiveSupport::OrderedOptions.new
+
+    initializer "event_calendar.configure" do |app|
+
+    end
+
     initializer :after_initialize do
       if defined?(ActionController::Base)
         ActionController::Base.helper EventCalendar::CalendarHelper
