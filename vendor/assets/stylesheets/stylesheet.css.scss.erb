@@ -14,14 +14,15 @@
   #2eac6a - hover (green)
 */
 
-$border: #d5d5d5;
-$day-names-bg: #303030;
-$day-number: #444;
-$day-header-bg: #ecede2;
-$today-header-bg: #d7d7ba;
-$today-bg: #ffd;
-$other-month-number: #777;
-$other-month-header: <%= EventCalendar.config.other_month_header %>;
+$border: <%= EventCalendar.config.border %>;
+$day-names-bg: <%= EventCalendar.config.day_names_bg %>;
+$day-names-text: <%= EventCalendar.config.day_names_text %>;
+$day-header-text: <%= EventCalendar.config.day_header_text %>;
+$day-header-bg: <%= EventCalendar.config.day_header_bg %>;
+$today-header-bg: <%= EventCalendar.config.today_header_bg %>;
+$today-bg: <%= EventCalendar.config.today_bg %>;
+$other-month-header-bg: <%= EventCalendar.config.other_month_header_bg %>;
+$other-month-header-text: <%= EventCalendar.config.other_month_header_text %>;
 $hover: #2eac6a;
 
 
@@ -67,7 +68,7 @@ $hover: #2eac6a;
   table-layout: fixed;
   padding: 2px 0;
   background: $day-names-bg;
-  color: white;
+  color: $day-names-text;
 }
 
 .ec-day-name {
@@ -118,7 +119,7 @@ $hover: #2eac6a;
 
 /* Day header */
 .ec-day-header {
-  color: #444;
+  color: $day-header-text;
   text-align: right;
   padding: 0 5px;
   line-height: 16px;
@@ -130,7 +131,7 @@ $hover: #2eac6a;
 }
 
 a.ec-day-link {
-  color: #444;
+  color: $day-header-text;
 }
 
 .ec-today-header {
@@ -142,8 +143,8 @@ a.ec-day-link {
 }
 
 .ec-other-month-header {
-  background-color: $other-month-header;
-  color: #777;
+  background-color: $other-month-header-bg;
+  color: $other-month-header-text;
 }
 
 .ec-other-month-bg {
