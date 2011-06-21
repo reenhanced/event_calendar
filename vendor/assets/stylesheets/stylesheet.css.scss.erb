@@ -14,16 +14,10 @@
   #2eac6a - hover (green)
 */
 
-$border: <%= EventCalendar.config.border %>;
-$day-names-bg: <%= EventCalendar.config.day_names_bg %>;
-$day-names-text: <%= EventCalendar.config.day_names_text %>;
-$day-header-text: <%= EventCalendar.config.day_header_text %>;
-$day-header-bg: <%= EventCalendar.config.day_header_bg %>;
-$today-header-bg: <%= EventCalendar.config.today_header_bg %>;
-$today-bg: <%= EventCalendar.config.today_bg %>;
-$other-month-header-bg: <%= EventCalendar.config.other_month_header_bg %>;
-$other-month-header-text: <%= EventCalendar.config.other_month_header_text %>;
-$hover: #2eac6a;
+@import "themes/<%= EventCalendar.config.color_theme %>";
+@import "themes/default";
+
+$cal-width: <%= EventCalendar.config.cal_width %>;
 
 
 /* Outer most container */
