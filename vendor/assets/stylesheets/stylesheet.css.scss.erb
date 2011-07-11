@@ -28,18 +28,29 @@ $cal-width: <%= EventCalendar.config.cal_width %>;
   margin: 0;
   padding: 0;
   border-bottom: 1px solid $border;
+  width: $cal-width;
 }
 
 /* Month name header & links */
 .ec-calendar-header {
   padding: 5px 0;
   width: 100%;
-  table-layout: fixed;
-}
 
-.ec-month-name {
-  font-size: 16px;
-  font-weight: bold;
+  .ec-previous-month {
+      float: left;
+  }
+
+  .ec-month-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+  }
+
+  .ec-next-month {
+    float: right;
+  }
 }
 
 .ec-month-nav {
@@ -49,7 +60,7 @@ $cal-width: <%= EventCalendar.config.cal_width %>;
 /* Containers */
 .ec-body {
   position: relative;
-  border-right: 1px solid $day-names-bg;
+  border-right: 1px solid $border;
   white-space: nowrap;
 }
 
@@ -67,6 +78,7 @@ $cal-width: <%= EventCalendar.config.cal_width %>;
 
 .ec-day-name {
   font-weight: normal;
+  text-align: center;
 }
 
 /* Rows container and Row */

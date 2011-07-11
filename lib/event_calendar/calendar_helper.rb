@@ -114,25 +114,19 @@ module EventCalendar
       cal = ""
 
       # outer calendar container
-      cal << %(<div class="ec-calendar")
-      cal << %(style="width: #{options[:width]}px;") if options[:width]
-      cal << %(>)
+      cal << %(<div class="ec-calendar">)
 
       # table header, including the monthname and links to prev & next month
       if options[:show_header]
-        cal << %(<table class="ec-calendar-header" cellpadding="0" cellspacing="0">)
-        cal << %(<thead><tr>)
-        if options[:previous_month_text] or options[:next_month_text]
-          cal << %(<th colspan="2" class="ec-month-nav ec-previous-month">#{options[:previous_month_text]}</th>)
-          colspan = 3
-        else
-          colspan = 7
+        cal << %(<div class="ec-calendar-header">)
+        if options[:previous_month_text]
+          cal << %(<span class="ec-month-nav ec-previous-month">#{options[:previous_month_text]}</span>)
         end
-        cal << %(<th colspan="#{colspan}" class="ec-month-name">#{options[:month_name_text]}</th>)
         if options[:next_month_text]
-          cal << %(<th colspan="2" class="ec-month-nav ec-next-month">#{options[:next_month_text]}</th>)
+          cal << %(<span class="ec-month-nav ec-next-month">#{options[:next_month_text]}</span>)
         end
-        cal << %(</tr></thead></table>)
+        cal << %(<div class="ec-month-name">#{options[:month_name_text]}</div>)
+        cal << %(</div>)
       end
 
       # body container (holds day names and the calendar rows)
