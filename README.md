@@ -1,3 +1,6 @@
+[![Build Status](https://secure.travis-ci.org/excid3/event_calendar.png)](http://travis-ci.org/excid3/event_calendar)
+
+
 EventCalendar
 =============
 
