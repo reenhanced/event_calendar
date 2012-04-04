@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    event-calendar (2.3.3)
+    event_calendar (2.5.0)
+      event_calendar
 
 GEM
   remote: http://rubygems.org/
@@ -38,7 +39,14 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    git (1.2.5)
     i18n (0.5.0)
+    jeweler (1.8.3)
+      bundler (~> 1.0)
+      git (>= 1.2.5)
+      rake
+      rdoc
+    json (1.6.1)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -65,6 +73,8 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rdoc (3.11)
+      json (~> 1.4)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -83,7 +93,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  event-calendar!
+  event_calendar!
+  jeweler
   rails
   rspec
   rspec-core

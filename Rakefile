@@ -4,12 +4,12 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "event-calendar"
+    gem.name = "event_calendar"
     gem.summary = "Rails helper for showing multiple, overlapping events across calendar days and rows."
-    gem.email = ""
+    gem.email = "nhance@reenhanced.com"
     gem.description = "Rails helper for showing multiple, overlapping events across calendar days and rows."
-    gem.authors = ["Jeff Schuil"]
-    gem.homepage = "http://github.com/elevation/event_calendar"
+    gem.authors = ["Nicholas Hance", "Jeff Schuil"]
+    gem.homepage = "http://github.com/reenhanced/event_calendar"
     gem.require_path = 'lib'
     # Runtime dependencies
   end
@@ -27,7 +27,7 @@ begin
     t.spec_files = FileList['spec/**/*_spec.rb']
     t.spec_opts = ['--options', 'spec/spec.opts']
   end
-  
+
 rescue LoadError
   # RSpec 2
   require 'rspec/core/rake_task'
@@ -37,12 +37,12 @@ rescue LoadError
     t.pattern = "spec/**/*_spec.rb"
     t.rspec_opts = %w(-fs --color)
   end
-  
+
 rescue LoadError
   puts "Rspec not available. Install it with: gem install rspec"
 end
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 desc 'Generate documentation for the event_calendar plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
